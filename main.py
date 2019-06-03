@@ -139,11 +139,16 @@ def problemPicker():
 def congrats():
     congratsWindow = Toplevel()
     congratsWindow.title('You Win!')
-    congratsWindow.geometry('200x200+0+0')
     congratsLabel = Label(congratsWindow, text ='Congragulations!')
     congratsLabel2 = Label(congratsWindow, text = 'You completed all 16 problems!')
     congratsLabel.grid(row = 0, column = 0)
     congratsLabel2.grid(row = 1, column = 0)
+    canvas = Canvas(congratsWindow, height=600, width=600, relief=RAISED, bg='azure')
+    canvas.grid(row = 2, column = 0)
+    canvas.create_polygon(0, 0, 600, 0, 300, 400, fill = 'blue', outline = 'blue')
+    canvas.create_polygon(100, 0, 500, 0, 300, 300, fill = 'azure', outline = 'azure')
+    canvas.create_oval(375, 325, 225, 475, fill = 'gold', outline = 'gold')
+    canvas.create_oval(350, 350, 250, 450, fill = 'gold', outline = 'goldenrod')
 
 def debug():
     print (answerProblem.get(1.0, END))
@@ -158,7 +163,7 @@ labelInstructions = Label(root, text = 'Answer all of the questions correctly to
 labelInstructions2 = Label(root, text = 'For all division problems, only put in the whole number. Leave out the remainder.')
 labelInstructions.grid(row = 1, column = 0, columnspan = 2)
 labelInstructions2.grid(row = 2, column = 0, columnspan = 2)
-labelGrade = Label(root, text = 'Please input grade (1-4): ')
+labelGrade = Label(root, text = 'Please input difficulty (1-4): ')
 labelGrade.grid(row = 3, column = 0)
 gradeText = Text(width = 10, height = 1)
 gradeText.grid(row = 3, column = 1)
