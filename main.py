@@ -161,7 +161,7 @@ answerProblem.grid(row = 6, column = 1)
 
 labelStart = Label(root, text = 'Welcome to Math Points!', fg = 'red')
 labelStart.grid(row = 0, column = 0, columnspan = 2)
-labelInstructions = Label(root, text = 'Answer all of the questions correctly to win! Pay close attention. The more questions correct, the harder the problems.')
+labelInstructions = Label(root, text = 'Answer all 16 questions correctly to win! Pay close attention. The more questions correct, the harder the problems.')
 labelInstructions2 = Label(root, text = 'For all division problems, only put in the whole number. Leave out the remainder.')
 labelInstructions3 = Label(root, text = 'This is intended for those is late elementary school (4th grade) up to those in middle school (7-8th grade) with the intent to help sharpen mental math skills.')
 labelInstructions.grid(row = 1, column = 0, columnspan = 2)
