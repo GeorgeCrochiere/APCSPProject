@@ -87,10 +87,14 @@ def makeProblemMultiply():
 def makeProblemDivide():
     grade = int(gradeText.get())
     x = random.randint(1,16)
-    y = random.randint(1,2)
+    y = random.randint(1,3)
     xUse = (x * grade)
-    yUse = (y * grade)
-    answer = xUse / yUse
+    randomChoice = random.randint(1,2)
+    if randomChoice == 1:
+        yUse = y
+    if randomChoice == 2:
+        yUse = (y * grade)
+    answer = round((xUse / float(yUse)), 3)
     answerRefrence.insert(END, answer)
     labelProblem = Label(root, text = (('   ') + str(xUse) +str(' / ') +str(yUse) + ('   ')))
     labelProblem.grid(row = 6, column = 0)
@@ -98,8 +102,8 @@ def makeProblemDivide():
     checkAnswer.grid(row = 7, column = 0, columnspan = 2)
 
 def onClick():
-    solution = int(answerProblem.get())
-    checkProblem(int(answerRefrence.get()),solution)
+    solution = (answerProblem.get())
+    checkProblem((answerRefrence.get()),solution)
 
 def checkProblem(checkingAnswer, checkingProblem):
     print checkingAnswer
@@ -164,7 +168,7 @@ answerProblem.grid(row = 6, column = 1)
 labelStart = Label(root, text = 'Welcome to Math Points!', fg = 'red')
 labelStart.grid(row = 0, column = 0, columnspan = 2)
 labelInstructions = Label(root, text = 'Answer all 16 questions correctly to win! Pay close attention. The more questions correct, the harder the problems.')
-labelInstructions2 = Label(root, text = 'For all division problems, only put in the whole number. Leave out the remainder. \n Leave EVERYTHING as whole numbers.')
+labelInstructions2 = Label(root, text = 'For all division problems, round to the thousandths place. If it is a whole number, end it with ".0". \n Leave EVERYTHING as whole numbers. \n The ENTER Key will not work. Click the appropiate buttons.')
 labelInstructions3 = Label(root, text = 'This is intended for those is late elementary school (4th grade) up to those in middle school (7-8th grade) with the intent to help sharpen mental math skills.')
 labelInstructions.grid(row = 1, column = 0, columnspan = 2)
 labelInstructions2.grid(row = 2, column = 0, columnspan = 2)
