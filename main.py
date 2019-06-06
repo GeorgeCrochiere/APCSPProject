@@ -34,8 +34,10 @@ yUse = 8
 solution = 2
 
 def start():
-    grade = (gradeText.get(1.0, END))
+    grade = (gradeText.get())
+    global points
     points = 0
+    pointsVar.set(str(points))
     answerRefrence.delete(0,99)
     answerProblem.delete(0,99)
     answerProblem.config(state = 'normal')
@@ -44,7 +46,7 @@ def start():
     problemPicker()
 
 def makeProblemAdd():
-    grade = int(gradeText.get(1.0, END))
+    grade = int(gradeText.get())
     x = random.randint(1,15)
     y = random.randint(1,15)
     xUse = (x * grade)
@@ -57,7 +59,7 @@ def makeProblemAdd():
     checkAnswer.grid(row = 7, column = 0, columnspan = 2)
     
 def makeProblemSubtract():
-    grade = int(gradeText.get(1.0, END))
+    grade = int(gradeText.get())
     x = random.randint(10,15)
     y = random.randint(1,9)
     xUse = (x * grade)
@@ -70,7 +72,7 @@ def makeProblemSubtract():
     checkAnswer.grid(row = 7, column = 0, columnspan = 2)
     
 def makeProblemMultiply():
-    grade = int(gradeText.get(1.0, END))
+    grade = int(gradeText.get())
     x = random.randint(1,2)
     y = random.randint(1,10)
     xUse = (x * grade)
@@ -83,7 +85,7 @@ def makeProblemMultiply():
     checkAnswer.grid(row = 7, column = 0, columnspan = 2)
     
 def makeProblemDivide():
-    grade = int(gradeText.get(1.0, END))
+    grade = int(gradeText.get())
     x = random.randint(1,16)
     y = random.randint(1,2)
     xUse = (x * grade)
@@ -162,14 +164,14 @@ answerProblem.grid(row = 6, column = 1)
 labelStart = Label(root, text = 'Welcome to Math Points!', fg = 'red')
 labelStart.grid(row = 0, column = 0, columnspan = 2)
 labelInstructions = Label(root, text = 'Answer all 16 questions correctly to win! Pay close attention. The more questions correct, the harder the problems.')
-labelInstructions2 = Label(root, text = 'For all division problems, only put in the whole number. Leave out the remainder.')
+labelInstructions2 = Label(root, text = 'For all division problems, only put in the whole number. Leave out the remainder. \n Leave EVERYTHING as whole numbers.')
 labelInstructions3 = Label(root, text = 'This is intended for those is late elementary school (4th grade) up to those in middle school (7-8th grade) with the intent to help sharpen mental math skills.')
 labelInstructions.grid(row = 1, column = 0, columnspan = 2)
 labelInstructions2.grid(row = 2, column = 0, columnspan = 2)
 labelInstructions3.grid(row = 3, column = 0, columnspan = 2)
 labelGrade = Label(root, text = 'Please input difficulty (1-4): ')
 labelGrade.grid(row = 4, column = 0)
-gradeText = Text(width = 10, height = 1)
+gradeText = Entry(width = 10)
 gradeText.grid(row = 4, column = 1)
 playButton = Button(root, text = 'Play!', command = start)
 playButton.grid(row = 5, column = 0, columnspan = 2)
